@@ -7,6 +7,9 @@
 const express = require('express') // Importando librería express
 const app = express(); // Inicializando express
 
+//ejecutando Bd
+const conexionBD = require('./src/db/conecction')
+conexionBD()
 // Para que el servidor comprenda archivos con formato json
 app.use(express.json());
 
@@ -14,6 +17,7 @@ app.use(express.json());
 app.use(require('./src/routes/home.routes')); 
 
 // Configurando puerto
+
 app.listen(3000, () => console.log(`Server running on http://localhost:3000`));
 
 // Ejecutar con: npm run dev
