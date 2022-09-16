@@ -10,10 +10,10 @@ const {
 } = require('../controllers/home.controllers');
 
 // Definiendo rutas
-router.get('/home', getHome);
-router.get('/home', postHome);
-router.put('/home', putHome);
-router.delete('/home', deleteHome);
+router.get('/getHome', getHome);
+router.post('/postHome', postHome);
+router.put('/putHome', putHome);
+router.delete('/deleteHome', deleteHome);
 
 // Se exporta el objeto router que contiene las rutas
 module.exports = router;

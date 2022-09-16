@@ -7,6 +7,7 @@
 const express = require('express') // Importando librería express
 const app = express(); // Inicializando express
 
+
 //ejecutando Bd
 const conexionBD = require('./src/db/conecction')
 conexionBD()
@@ -15,6 +16,8 @@ app.use(express.json());
 
 // Importando rutas
 app.use(require('./src/routes/home.routes')); 
+app.use(require('./src/routes/user.routes'));
+//falta task.
 
 // Configurando puerto
 
