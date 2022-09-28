@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/user");
 
 const ctrlUser = {};
 
@@ -34,17 +34,65 @@ ctrlUser.postUser = async (req, res) => {
 };
 
 // Controlador para actualizar un usuario, requiere que se envíe ID  de usuario.
+// ctrlUser.putUser = async (req, res) => {
+//     return res.json({
+//         msg: ''
+//     })
+// };
+
+
+
 ctrlUser.putUser = async (req, res) => {
+    const id = req.params.id;
+    const { username,password,email, ... otroDatos} = req.body;
+
+    if (!id || !username || !password || !email) {
+        return res.status(400).json({
+            msg: 'No viene Id en la peticion'
+        });
+    };
+
+   try{
+     const usuarioActualizada = await User.findByIdAndUpdate(id, {username,password, email})
+     
     return res.json({
-        msg: ''
+        msg: 'Usuario actualizado correctamente'
     })
+
+   } catch (error){
+    console.log(error.message);
+    return res.status(500).json({
+        msg: 'Error al actualizar el usuario'
+    })
+   };
+
+    
 };
 
+
 // Controlador para eliminar usuario, requiere ID de usuario.
+
+
+// ctrlUser.deleteUser = async (req, res) => {
+//     return res.json({
+//         msg: ''
+//     })
+// };
+
 ctrlUser.deleteUser = async (req, res) => {
-    return res.json({
-        msg: ''
-    })
+    const id = req.params.id;
+
+    try {
+        await User.findByIdAndUpdate(id, { isActive: false })
+        return res.json('Usuario eliminado correctamente');
+    } catch (err) {
+        console.log(err.message)
+        return res.status(500).json({
+            msg: 'Error al eliminar el usuario'
+        });
+    }
 };
+
+
 
 module.exports = ctrlUser;

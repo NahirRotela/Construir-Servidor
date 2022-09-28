@@ -3,11 +3,16 @@ const ctrlHome = {};
 
 // Se añade la propiedad getHome que es una función que recibe dos parámetros
 // req: request y res: response. Sirven para manejar la petición y la respuesta del servidor
+
 ctrlHome.getHome =(req, res) => {
-    res.send({
-        message: 'Petición GET'
-    })
+    res.render('index', );
 };
+
+// ctrlHome.getHome =(req, res) => {
+//     res.send({
+//         message: 'Petición GET'
+//     })
+// };
 
 ctrlHome.postHome =(req, res) => {
     res.send({

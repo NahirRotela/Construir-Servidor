@@ -13,16 +13,16 @@ const {
 // Definiendo rutas
 
 // Ruta para obtener todos los usuarios
-router.get('/getUsers', getUsers);
+router.get('/getUsers', getUser);
 
 // Crear nuevo usuario
 router.post('/postUser', postUser);
 
 // Editar usuario, requiere ID de usuario
-router.put('/putUser', putUser);
+router.put('/putUser/:id', putUser);
 
 // Eliminar usuario, requiere ID de usuario
-router.delete('/deleteUser', deleteUser);
+router.delete('/deleteUser/:id', deleteUser);
 
 
 

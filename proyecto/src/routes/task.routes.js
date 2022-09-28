@@ -3,17 +3,17 @@ const router = require('express').Router();
 
 // Importando controladores
 const {
-    getStack,
-    postStack,
-    putStack,
-    deleteStack
+    getTasks,
+    postTasks,
+    putTasks,
+    deleteTasks
 } = require('../controllers/task.controllers');
 
 // Definiendo rutas
-router.get('/getStack', getStack);
-router.post('/postStack', postStack);
-router.put('/putStack', putStack);
-router.delete('/deleteStack', deleteStack);
+router.get('/getTask',  getTasks);
+router.post('/postTask', postTasks);
+router.put('/putTask/:id', putTasks);
+router.delete('/deleteTask/:id', deleteTasks);
 
 // Se exporta el objeto router que contiene las rutas
 module.exports = router;

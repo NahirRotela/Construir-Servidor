@@ -1,0 +1,15 @@
+<%- include('partials/header') -%>
+<body>
+    <h1>Bienvenid@</h1>
+    <hr>
+    <ul>
+        <% tasks.forEach((task)=> { %>
+            <li>
+                <%= task.titulo %>
+                <%= task.descripcion %>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+<%- include('carousel') -%>
+<%- include('partials/footer') -%>
